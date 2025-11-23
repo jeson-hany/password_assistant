@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>🔐 مساعد كلمة المرور</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="box">
+    <!-- زر تبديل اللغة -->
+    <button id="langBtn" onclick="toggleLanguage()">English</button>
+
+    <h2>🔐 مساعد كلمة المرور</h2>
+
+    <h3>📝 مواصفات الكلمة القوية:</h3>
+    <ul class="rules">
+      <li>✅ أكثر من 6 حروف</li>
+      <li>✅ حرف كبير (مثل: A, B, C...)</li>
+      <li>✅ حرف صغير (مثل: a, b, c...)</li>
+      <li>✅ رقم (مثل: 1, 2, 3...)</li>
+      <li>✅ رمز (مثل: !, @, #, $, ...)</li>
+    </ul>
+
+    <button onclick="generatePassword()">🔄 إنشاء كلمة مرور قوية</button>
+    <p id="generated"></p>
+
+    <button id="saveBtn" onclick="savePassword()" style="display:none;">💾 حفظ كلمة المرور</button>
+    <button onclick="showSavedPasswords()">📂 عرض الكلمات المحفوظة</button>
+    <button onclick="clearAllPasswords()">🗑️ مسح كل الكلمات</button>
+    <p id="saveMsg"></p>
+
+    <!-- مكان عرض الكلمات المحفوظة -->
+    <div id="savedList" style="margin-top:10px;"></div>
+
+    <hr>
+
+    <!-- اختبار كلمة المرور -->
+    <input type="text" id="userPassword" placeholder="✏️ اكتب كلمة مرور لاختبارها">
+    <button onclick="checkPassword()">🔍 اختبار القوة</button>
+    <p id="result">💬 النتيجة ستظهر هنا</p>
+
+    <!-- مكان عرض الاقتراحات -->
+    <p id="suggestions" style="white-space: pre-line; color: orange;"></p>
+
+    <hr>
+
+    <!-- زر تسجيل الخروج -->
+    <button id="logoutBtn">🚪 تسجيل الخروج</button>
+  </div>
+
+  <!-- ملفات الجافاسكربت -->
+  <script src="script.js"></script>
+  <script type="module" src="auth.js"></script>
+  <script type="module" src="logout.js"></script>
+</body>
+</html>
+
+

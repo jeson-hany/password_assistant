@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>🔐 تسجيل الدخول</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body dir="rtl" style="display:none;">
+  <div class="box">
+    <button id="langBtn" onclick="toggleLanguage()">English</button>
+
+    <p id="welcomeText">🔐 مساعد كلمة المرور<br>✨ مرحبًا بعودتك! سجّل دخولك لإدارة كلمات مرورك بأمان 🛡️</p>
+
+    <h2 id="loginTitle">🔐 تسجيل الدخول</h2>
+
+    <input type="email" id="loginEmail" placeholder="📧 البريد الإلكتروني" required />
+
+    <div class="password-container">
+      <input type="password" id="loginPassword" placeholder="🔑 كلمة المرور" required />
+      <span id="togglePassword" class="eye-icon">👁️</span>
+    </div>
+
+    <button id="loginBtn">تسجيل الدخول</button>
+
+    <button id="resetBtn" onclick="window.location.href='reset.html'">نسيت كلمة المرور؟</button>
+
+    <p id="loginMsg"></p>
+    <hr />
+
+    <p id="noAccountText">ليس لديك حساب؟ <a href="register.html">إنشاء حساب</a></p>
+  </div>
+  
+  <script type="module" src="auth.js"></script>
+  <script type="module" src="login.js"></script>
+</body>
+</html>

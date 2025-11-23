@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>🔑 إعادة تعيين كلمة المرور</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="box">
+    <!--  زر تغيير اللغة -->
+    <button id="langBtn" onclick="toggleLanguage()">English</button>
+
+    <h2>🔑 إعادة تعيين كلمة المرور</h2>
+    <p id="descText">أدخل بريدك الإلكتروني لإرسال رابط إعادة التعيين</p>
+
+    <input type="email" id="resetEmail" placeholder="📧 البريد الإلكتروني" required>
+    <button id="sendResetBtn">إرسال رابط إعادة التعيين</button>
+    <p id="resetMsg"></p>
+    <hr>
+    <a id="backLink" href="login.html">⬅️ الرجوع لتسجيل الدخول</a>
+  </div>
+
+  <script type="module" src="auth.js"></script>
+  <script type="module" src="reset.js"></script>
+</body>
+</html>
+

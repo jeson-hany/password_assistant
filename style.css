@@ -1,0 +1,145 @@
+
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background: linear-gradient(135deg, #161a2a, #2f3e52);
+  padding: 30px;
+  direction: rtl;
+  color: #e0e0e0;
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  box-sizing: border-box;
+}
+
+
+.box {
+  background: rgba(20, 29, 47, 0.95);
+  border-radius: 12px;
+  padding: 25px;
+  width: 350px;
+  margin: 20px auto;
+  box-shadow: 0 0 20px rgba(0, 200, 255, 0.25);
+  border: 1px solid rgba(0, 200, 255, 0.3);
+  box-sizing: border-box;
+}
+
+
+input, button {
+  margin: 10px;
+  padding: 12px;
+  width: 90%;
+  font-size: 16px;
+  border-radius: 8px;
+  border: none;
+}
+
+input {
+  background: #f0f8ff;
+  color: #0a0f1f;
+  border: 1px solid #00bcd4;
+}
+
+button {
+  background: #00bcd4;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #0097a7;
+}
+
+
+#result, #saveMsg {
+  font-size: 18px;
+  margin-top: 12px;
+  font-weight: bold;
+  color: #00e5ff;
+}
+
+.rules {
+  text-align: right;
+  font-size: 14px;
+  margin: 12px 0;
+  color: #c5e1f5;
+}
+
+#suggestions {
+  font-size: 14px;
+  margin-top: 10px;
+  text-align: right;
+  color: #ff9800;
+  white-space: pre-line;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #00bcd4;
+  margin: 15px 0;
+  width: 100%;
+}
+
+
+.password-container {
+  position: relative;
+  width: 100%;
+}
+
+.password-container input {
+  width: 100%;
+  padding-inline-end: 40px;
+  padding-inline-start: 10px;
+  box-sizing: border-box;
+}
+
+.eye-icon {
+  position: absolute;
+  cursor: pointer;
+  font-size: 20px;
+  user-select: none;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: transform 0.3s ease, right 0.3s ease, left 0.3s ease;
+}
+
+body[dir="ltr"] .eye-icon {
+  right: 10px;
+  left: auto;
+  transform: translateY(-50%) scaleX(1);
+}
+
+body[dir="rtl"] .eye-icon {
+  left: 10px;
+  right: auto;
+  transform: translateY(-50%) scaleX(-1);
+}
+
+
+@media (max-width: 768px) {
+  body {
+    padding: 0;
+    align-items: stretch;
+  }
+
+  .box {
+    width: calc(100vw - 10px);
+    height: calc(100vh - 10px);
+    border-radius: 12px;
+    margin: 5px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    overflow-y: auto;
+  }
+
+  input, button {
+    width: 95%;
+  }
+}

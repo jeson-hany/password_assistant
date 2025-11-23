@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>📝 إنشاء حساب</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body dir="rtl" style="text-align: right;">
+  <div class="box">
+
+    <button id="langBtn" onclick="toggleLanguage()">English</button>
+
+    <div id="intro">
+      <h1>🔐 مساعد كلمة المرور</h1>
+      <p id="introText">
+        ✨ أنشئ حسابك الآن وابدأ رحلتك نحو كلمات مرور آمنة وسهلة التذكر!  
+        🛡️ تطبيقنا يساعدك على إنشاء، اختبار، وتخزين كلمات مرور قوية بكل سهولة.
+      </p>
+    </div>
+
+    <hr />
+
+    <h2>📝 إنشاء حساب جديد</h2>
+    <input type="email" id="regEmail" placeholder="📧 البريد الإلكتروني" required />
+
+    <div class="password-container">
+      <input type="password" id="regPassword" placeholder="🔑 كلمة المرور" required />
+      <span id="togglePassword" class="eye-icon">👁️</span>
+    </div>
+
+    <p id="result"></p>
+    <p id="suggestions"></p>
+
+    <button id="registerBtn">إنشاء الحساب</button>
+    <p id="regMsg"></p>
+
+    <hr />
+    <p id="haveAccount">لديك حساب بالفعل؟ <a href="login.html">تسجيل الدخول</a></p>
+  </div>
+
+  <script type="module" src="register.js"></script>
+</body>
+</html>
