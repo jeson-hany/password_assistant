@@ -32,7 +32,6 @@ const translations = {
     savedEmpty: "❌ لا توجد كلمات مرور محفوظة.",
     savedTitle: "📂 الكلمات المحفوظة:",
     savedDone: "✅ تم حفظ كلمة المرور!",
-    savedExists: "⚠️ تم حفظ كلمة المرور سابقًا!",
     savedCleared: "🗑️ تم مسح جميع كلمات المرور.",
     generated: "🔐 كلمة المرور: ",
     copied: "✅ تم النسخ!"
@@ -69,7 +68,6 @@ const translations = {
     savedEmpty: "❌ No saved passwords.",
     savedTitle: "📂 Saved Passwords:",
     savedDone: "✅ Password saved!",
-    savedExists: "⚠️ Password already saved!",
     savedCleared: "🗑️ All passwords cleared.",
     generated: "🔐 Password: ",
     copied: "✅ Copied!"
@@ -191,25 +189,57 @@ function checkPassword() {
   }
 }
 
-function savePassword() {
-  const pw = document.getElementById("generated").innerText.replace(translations[currentLang].generated, "");
-  if (!pw) return;
+// function savePassword() {
+//   const pw = document.getElementById("generated").innerText.replace(translations[currentLang].generated, "");
+//   if (!pw) return;
 
+//   let savedPasswords = JSON.parse(localStorage.getItem("savedPasswords")) || [];
+
+//   // هل كلمة المرور محفوظة من قبل  ؟
+//   if (savedPasswords.includes(pw)) {
+//     document.getElementById("saveMsg").innerText = translations[currentLang].savedExists;
+//   } else {
+//     savedPasswords.push(pw);
+//     localStorage.setItem("savedPasswords", JSON.stringify(savedPasswords));
+//     document.getElementById("saveMsg").innerText = translations[currentLang].savedDone;
+//   }
+
+//   setTimeout(() => {
+//     document.getElementById("saveMsg").innerText = "";
+//   }, 2000);
+// }
+
+function savePassword() {
+  // بنجيب كلمة المرور اللي ظاهر بعد النص "كلمة المرور: "
+  const pw = document.getElementById("generated").innerText.replace(translations[currentLang].generated, "");
+  if (!pw) return; // لو مفيش كلمة مرور طالعة، نخرج من الدالة خالص
+
+  // بنجيب اللي متخزن في localStorage أو بنعمل مصفوفة فاضية لو مفيش حاجة
   let savedPasswords = JSON.parse(localStorage.getItem("savedPasswords")) || [];
 
-  // هل كلمة المرور محفوظة من قبل  ؟
-  if (savedPasswords.includes(pw)) {
-    document.getElementById("saveMsg").innerText = translations[currentLang].savedExists;
-  } else {
-    savedPasswords.push(pw);
-    localStorage.setItem("savedPasswords", JSON.stringify(savedPasswords));
-    document.getElementById("saveMsg").innerText = translations[currentLang].savedDone;
+  // لو كلمة المرور دي مش موجودة قبل كده، نضيفها
+  if (!savedPasswords.includes(pw)) {
+    savedPasswords.push(pw); // بنضيف الكلمة الجديدة
+    localStorage.setItem("savedPasswords", JSON.stringify(savedPasswords)); // وبنخزنها في الذاكرة
   }
 
+  // نعرض رسالة إن كلمة المرور اتحفظت
+  document.getElementById("saveMsg").innerText = translations[currentLang].savedDone;
+
+  // بعد الحفظ، نمسح الحقول ونظف الشاشة
+  document.getElementById("userPassword").value = ""; // بنفضي حقل الإدخال
+  document.getElementById("generated").innerText = ""; // بنمسح كلمة المرور اللي كانت ظاهرة
+  document.getElementById("result").innerText = translations[currentLang].result; // بنرجع رسالة النتيجة الافتراضية
+  document.getElementById("suggestions").innerText = ""; // بنمسح أي اقتراحات ظهرت
+  document.getElementById("saveBtn").style.display = "none"; // بنخفي زر الحفظ عشان لسة مفيش كلمة جديدة
+
+  // بنخلي رسالة الحفظ تختفي بعد ثانيتين
   setTimeout(() => {
     document.getElementById("saveMsg").innerText = "";
   }, 2000);
 }
+
+
 
 function showSavedPasswords() {
   const savedPasswords = JSON.parse(localStorage.getItem("savedPasswords")) || [];
